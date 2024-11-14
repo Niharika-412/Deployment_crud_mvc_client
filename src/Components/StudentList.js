@@ -29,6 +29,7 @@ function StudentList() {
 
       if (editingId) {
         await axios.put(`${API_URL}/${editingId}`, studentData);
+
         setEditingId(null);
       } else {
         await axios.post(API_URL, studentData);
@@ -45,7 +46,8 @@ function StudentList() {
 
   const deleteStudent = async (id) => {
     try {
-      await axios.delete(`${API_URL}/${id}`);
+        await axios.delete(`${API_URL}/${id}`);
+
       fetchStudents();
     } catch (error) {
       console.error("Error deleting student:", error);
@@ -69,7 +71,8 @@ function StudentList() {
     // Generate CSV content with headers
     const headers = "Name,Age,Grade\n";
     const csvContent = students.map(student => 
-      `${student.name},${student.age},${student.grade}`
+  `${student.name},${student.age},${student.grade}`
+
     ).join('\n');
     
     // Blob creation
